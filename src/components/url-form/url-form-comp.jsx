@@ -1,13 +1,20 @@
 import React from "react";
+
 import "./url-form-styles.scss";
 
-const UrlForm = () => {
+const UrlForm = ({ handleInput, handleSubmit }) => {
   return (
     <div className="container">
       <span>Use latest AI feature to detect faces on any image</span>
       <div className="form">
-        <input type="text" placeholder="Copy image link URL" />
-        <button className="bg">Process</button>
+        <input
+          type="text"
+          placeholder="Copy 'png'or 'jpg' image link URL"
+          onChange={handleInput}
+        />
+        <button className="bg" onClick={handleSubmit}>
+          Process
+        </button>
       </div>
     </div>
   );
