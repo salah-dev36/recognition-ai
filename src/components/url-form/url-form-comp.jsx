@@ -4,7 +4,7 @@ import "./url-form-styles.scss";
 
 const UrlForm = ({ handleInput, handleSubmit }) => {
   return (
-    <div className="container">
+    <div className="container card">
       <span>Use latest AI feature to detect faces on any image</span>
       <div className="form">
         <input

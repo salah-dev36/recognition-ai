@@ -1,0 +1,40 @@
+.input-container {
+  position: relative;
+  letter-spacing: 1px;
+  margin-bottom: 36px;
+
+  label {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-weight: 500;
+    pointer-events: none;
+    transition: all 0.5s ease-in-out;
+    text-transform: capitalize;
+  }
+
+  input {
+    border: 0;
+    border-bottom: 1px solid #555;
+    background: transparent;
+    width: 100%;
+    padding: 5px 0 5px 0;
+    font-size: 16px;
+    color: #eedada;
+
+    &:focus,
+    &:valid {
+      border: none;
+      outline: none;
+      border-bottom: 1px solid #fd96a9;
+      & ~ label {
+        top: -14px;
+        font-size: 12px;
+      }
+    }
+  }
+
+  input[type="password"] {
+    letter-spacing: 0.3em;
+  }
+}
