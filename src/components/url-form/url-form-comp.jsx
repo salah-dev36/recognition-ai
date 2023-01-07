@@ -2,7 +2,7 @@ import React from "react";
 
 import "./url-form-styles.scss";
 
-const UrlForm = ({ handleInput, handleSubmit }) => {
+const UrlForm = ({ handleInput, handleSubmit, loading }) => {
   return (
     <div className="container card">
       <span>Use latest AI feature to detect faces on any image</span>
@@ -12,7 +12,7 @@ const UrlForm = ({ handleInput, handleSubmit }) => {
           placeholder="Copy 'png'or 'jpg' image link URL"
           onChange={handleInput}
         />
-        <button className="bg" onClick={handleSubmit}>
+        <button disabled={loading} className="bg" onClick={handleSubmit}>
           Process
         </button>
       </div>

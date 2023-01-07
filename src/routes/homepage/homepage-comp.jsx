@@ -48,7 +48,7 @@ const HomePage = () => {
   return (
     <div className="home-container">
       <Logo />
-      <UrlForm handleInput={handleInput} handleSubmit={handleSubmit} />
+      <UrlForm loading={loading} handleInput={handleInput} handleSubmit={handleSubmit} />
       <FaceImage
         loading={loading}
         imgUrl={imgUrl}

@@ -11,30 +11,28 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="sign-in-container">
-      <form className="card">
-        <Logo />
-        <h3>sign in here</h3>
-        <FormInput
-          label="email"
-          inputProps={{
-            type: "email",
-            name: "email",
-          }}
-        />
-        <FormInput
-          label="password"
-          inputProps={{
-            type: "password",
-            name: "password",
-          }}
-        />
-        <Button children="sign in" />
-        <p>
-          Don't have an account?{" "}
-          <span onClick={() => navigate("/sign-up")}>sign up</span>
-        </p>
-      </form>
+    <div className="sign-in-container card">
+      <Logo />
+      <h3>sign in here</h3>
+      <FormInput
+        label="email"
+        inputProps={{
+          type: "email",
+          name: "email",
+        }}
+      />
+      <FormInput
+        label="password"
+        inputProps={{
+          type: "password",
+          name: "password",
+        }}
+      />
+      <Button children="sign in" />
+      <p>
+        Don't have an account?{" "}
+        <span onClick={() => navigate("/sign-up")}>sign up</span>
+      </p>
     </div>
   );
 };

@@ -3,6 +3,10 @@
     font-family: 'Aldrich', sans-serif;
 }
 
+input {
+    font-family: 'Tahoma';
+}
+
 #tsparticles {
     position: fixed;
     top: 0;
