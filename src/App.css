@@ -26,6 +26,9 @@ input {
     animation: AnimateBG 9s ease infinite;
 }
 
+a{
+    color: #eedada;}
+
 @keyframes AnimateBG {
     0% {
         background-position: 0% 50%

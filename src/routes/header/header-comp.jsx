@@ -1,14 +1,31 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, Link, useLocation } from "react-router-dom";
 
-import Navigation from "../../components/navigation/navigation-comp";
+import "./header-styles.scss";
 
-const Header = () => {
+const Header = ({ setCurrentUser }) => {
+  const { pathname } = useLocation();
+
+  const renderNavigation = (location) => {
+    switch (location) {
+      case "/home":
+        return (
+          <Link onClick={() => setCurrentUser(null)} to="/">
+            sign out
+          </Link>
+        );
+      case "/":
+        return <Link to="/sign-up">sign up</Link>;
+      default:
+        return <Link to="/">sign in</Link>;
+    }
+  };
+
   return (
-    <div>
-      <Navigation />
+    <>
+      <div className="navbar">{renderNavigation(pathname)}</div>
       <Outlet />
-    </div>
+    </>
   );
 };
 

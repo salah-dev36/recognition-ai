@@ -7,7 +7,7 @@ import "./face-image-styles.scss";
 const FaceImage = ({ imgUrl, boxes, imgRef, loading }) => {
   return (
     <div ref={imgRef} className="img-container">
-      <img src={imgUrl} />
+      <img src={imgUrl} alt=""/>
       {loading ? (
         <Spinner />
       ) : (
