@@ -6,7 +6,19 @@ const FormInput = ({ label, inputProps }) => {
   return (
     <div className="input-container">
       <input required {...inputProps} />
-      <label htmlFor={inputProps.name} required>{label}</label>
+      <label
+        className={`${
+          inputProps.value &&
+          typeof inputProps.value === "string" &&
+          inputProps.value
+            ? "shrink"
+            : ""
+        }`}
+        htmlFor={inputProps.name}
+        required
+      >
+        {label}
+      </label>
     </div>
   );
 };
