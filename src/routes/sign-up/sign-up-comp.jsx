@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import { fetchRequest } from "../../utils/server-requests";
+import { fetchRequest } from "../../utils/server-request";
 
 import Button from "../../components/button/button-comp";
 import FormInput from "../../components/form-input/form-input-comp";
