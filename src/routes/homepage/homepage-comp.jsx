@@ -7,8 +7,11 @@ import FaceImage from "../../components/face-image/face-image-comp";
 
 import { clarifaiFetch } from "../../clarifai/clarifai-request";
 import { calculateFaceBoxes } from "../../utils/face-boxes";
+import { fetchRequest } from "../../utils/server-requests";
 
-const HomePage = () => {
+import "./homepage-styles.scss";
+
+const HomePage = ({ currentUser, setCurrentUser }) => {
   const [inputField, setInputField] = useState("");
   const [imgUrl, setImgUrl] = useState("");
   const [boxes, setBoxes] = useState([]);
@@ -32,23 +35,41 @@ const HomePage = () => {
     setLoading(true);
 
     clarifaiFetch(inputField)
-      .then((data) => {
-        const boxes = data.outputs[0].data.regions?.map((region) => {
-          return region.region_info.bounding_box;
-        });
+      .then((boxes) => {
+        if (boxes) {
+          fetchRequest({ id: currentUser.id }, "recognize", "put").then(
+            (updatedUser) => {
+              if (updatedUser.id) {
+                setCurrentUser(updatedUser);
+              }
+            }
+          );
+        }
         setBoxesResponse(boxes);
         setBoxes(calculateFaceBoxes(boxes, dimensions));
         setLoading(false);
       })
       .catch((err) => {
         setLoading(false);
-        console.log("error:", err);
+        console.log("error");
       });
   };
   return (
-    <div className="home-container">
+    <div>
       <Logo />
-      <UrlForm loading={loading} handleInput={handleInput} handleSubmit={handleSubmit} />
+      {currentUser ? (
+        <p className="entries">
+          {currentUser.name} you have made {currentUser.entries || 0}{" "}
+          face-detections
+        </p>
+      ) : (
+        ""
+      )}
+      <UrlForm
+        loading={loading}
+        handleInput={handleInput}
+        handleSubmit={handleSubmit}
+      />
       <FaceImage
         loading={loading}
         imgUrl={imgUrl}

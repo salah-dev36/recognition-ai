@@ -33,15 +33,20 @@ const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Header setCurrentUser={setCurrentUser} />}>
-          <Route
-            index
-            element={<SignIn setCurrentUser={setCurrentUser} />}
-          />
+          <Route index element={<SignIn setCurrentUser={setCurrentUser} />} />
           <Route
             path="/sign-up"
             element={<SignUp setCurrentUser={setCurrentUser} />}
           />
-          <Route path="/home" element={<HomePage />} />
+          <Route
+            path="/home"
+            element={
+              <HomePage
+                currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
+              />
+            }
+          />
         </Route>
       </Routes>
       <ParticlesTs />

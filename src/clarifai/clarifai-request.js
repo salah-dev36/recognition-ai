@@ -40,6 +40,8 @@ export const clarifaiFetch = async (input) => {
       alert("API down please try again later");
     }
   }
-  
-  return data;
+  const boxes = data.outputs[0].data.regions?.map((region) => {
+    return region.region_info.bounding_box;
+  });
+  return boxes;
 };

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import { postRequestFetch } from "../../utils/server-requests";
+import { fetchRequest } from "../../utils/server-requests";
 
 import Button from "../../components/button/button-comp";
 import FormInput from "../../components/form-input/form-input-comp";
@@ -30,7 +30,7 @@ const SignUp = ({ setCurrentUser }) => {
     if (!email || !password || !name) {
       alert("please enter valid information");
     } else {
-      postRequestFetch(formFields, "signup")
+      fetchRequest(formFields, "signup", "post")
         .then((data) => {
           if (data.id) {
             navigate("/home");
