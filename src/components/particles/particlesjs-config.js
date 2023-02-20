@@ -1,8 +1,8 @@
 export const particlesOptions = {
-  fpsLimit: 120,
+  fpsLimit: 30,
   particles: {
     number: {
-      value: 80,
+      value: 40,
       density: {
         enable: true,
         value_area: 600,
@@ -55,7 +55,7 @@ export const particlesOptions = {
     },
     move: {
       enable: true,
-      speed: 3,
+      speed: 1,
       direction: "none",
       random: false,
       straight: false,
@@ -68,4 +68,5 @@ export const particlesOptions = {
       },
     },
   },
+  
 };
